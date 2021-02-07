@@ -9,6 +9,8 @@
 //                              iostream
 // Historique du fichier:
 /*************************************************/
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 #include <iostream>
 using namespace std;
 
@@ -17,6 +19,17 @@ using namespace std;
 int main()
 {
     cout << "Vous allez jouer pour deviner un nombre secret" << endl;
+    string un_nom;
+    TJoueur joueur;
+    int nombreADeviner;
+    nombreADeviner = TirerNombreMystere();
+    cout << "Quel est ton nom ? : ";
+    cin >> un_nom;
+
+    InitJoueur(joueur, un_nom);
+
+
+    JouerPartie (joueur, nombreADeviner );
 
     return 0;
 }

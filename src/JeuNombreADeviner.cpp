@@ -10,9 +10,14 @@
 //                              ctime
 // Historique du fichier:
 /*************************************************/
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 #include <iostream>
 using namespace std;
 #include "../include/JeuNombreAdeviner.h"
+
+
+
 
 // Nom :InitJoueur
 // Rôle : Crée un joueur. Initialise toutes les informations du joueur.
@@ -21,9 +26,15 @@ using namespace std;
 // Paramètres de sortie :
 // Paramètres d'entrée/sortie :
 
-void InitJoueur(TJoueur& joueurAcreer, string un_nom)
+void InitJoueur(TJoueur &joueurAcreer, string un_nom)
 {
-    //A COMPLETER
+    TJoueur joueur;
+    joueurAcreer = joueur;
+    joueur.nom = un_nom;
+    joueur.nbPartiesJouees = 0;
+    joueur.nbPartiesGagnees = 0;
+    joueur.nbTentatives = 0;
+    cout << "bienvenue dans le jeu " << joueur.nom << " !" << endl;
 }
 
 
@@ -33,8 +44,9 @@ void InitJoueur(TJoueur& joueurAcreer, string un_nom)
 
 int TirerNombreMystere()
 {
-    //A COMPLETER
-        return -1;
+    int a;
+    a = rand() % 10 + 1;
+    return a;
 }
 
 
@@ -45,9 +57,36 @@ int TirerNombreMystere()
 // Paramètres de sortie:
 // Paramètres d'entrée/sortie :
 
-void JouerPartie(TJoueur& un_joueur, int nombreADeviner)
+void JouerPartie(TJoueur &un_joueur, int nombreADeviner)
 {
-    //A COMPLETER
+    for (int i = 1; i < 5; i++ ){
+
+        int a;
+        cout << "Choisis un nombre entre 1 et 10 (compris) : ";
+        cin >> a ;
+            if (  a > nombreADeviner  ){
+                cout << "Le nombre a trouver est inferieur !" << endl;
+            }else if( a < nombreADeviner) {
+                cout << "Le nombre a trouver est superieur !" << endl;
+            }
+
+            else if( a == nombreADeviner && i == 1){
+                cout << "Bien joue vous avez trouve le nombre mystere en " << i << " essai !";
+                break;
+
+            }
+            else if( a == nombreADeviner && i > 1){
+                cout << "Bien joue vous avez trouve le nombre mystere en " << i << " essais !";
+                break;
+
+            }
+            else if( a != nombreADeviner && i == 4){
+                cout << "Vous avez utilise vos 4 essais, GAME OVER :(";
+                break;
+
+            }
+    }
+
 }
 
 

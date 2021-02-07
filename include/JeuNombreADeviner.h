@@ -1,3 +1,4 @@
+
 /*************************************************/
 // Nom du projet: Jeu du nombre à deviner
 // Nom du fichier: JeuNombreADeviner.h
@@ -9,12 +10,13 @@
 // Nom des composants utilises: string
 // Historique du fichier:
 /*************************************************/
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 #include <string>
 using namespace std;
 
 //Type: structure TJoueur
 // Rôle : représente un joueur. Définit les propriétés d'un joueur.
-
 typedef struct {
 
 string nom;  // nom du joueur
@@ -26,7 +28,6 @@ int nbTentatives;
 
 
 
-
 // Nom :InitJoueur
 // Rôle : Crée un joueur. Initialise toutes les informations du joueur.
 //        Le nombre de tentatives, de parties gagnées et de parties jouées seront à 0.
@@ -34,7 +35,9 @@ int nbTentatives;
 // Paramètres de sortie :
 // Paramètres d'entrée/sortie :
 
-void InitJoueur (TJoueur &joueurAcreer, string un_nom);
+void InitJoueur(TJoueur &joueurAcreer, string un_nom);
+
+
 
 
 // Nom :TirerNombreMystere
@@ -42,6 +45,12 @@ void InitJoueur (TJoueur &joueurAcreer, string un_nom);
 // Valeur de retour : nombre à deviner
 
 int TirerNombreMystere();
+
+
+
+
+
+
 
 // Nom :JouerPartie
 // Rôle : Fait jouer une partie au joueur passé en paramètre
@@ -51,6 +60,8 @@ int TirerNombreMystere();
 // Paramètres d'entrée/sortie :
 
 void JouerPartie (TJoueur &un_joueur, int nombreADeviner);
+
+
 
 // Nom : MajResultatsJoueur
 // Rôle : met à jour les informations du joueur passé en paramètre
@@ -79,5 +90,6 @@ void ResultatsJoueur(TJoueur joueur, int &nbsucces, int &nbechec, int & nbessais
 // Valeur de retour : nom du joueur
 
 string Nom(TJoueur joueur);
+
 
 
