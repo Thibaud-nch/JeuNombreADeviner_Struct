@@ -12,25 +12,49 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <iostream>
+#include <stdbool.h>
 using namespace std;
 
 #include "../include/JeuNombreADeviner.h"
 
 int main()
 {
-    cout << "Vous allez jouer pour deviner un nombre secret" << endl;
+    // variables de jeu
     string un_nom;
-    TJoueur joueur;
+    string choix;
     int nombreADeviner;
-    nombreADeviner = TirerNombreMystere();
+    TJoueur joueur;
+    int nbsucces;
+    int nbechec;
+    int nbessais;
+
+    cout << "Vous allez jouer pour deviner un nombre secret" << endl;
     cout << "Quel est ton nom ? : ";
-    cin >> un_nom;
+    cin >> un_nom ;
+    cout << endl;
 
     InitJoueur(joueur, un_nom);
+    // boucle de jeu
+    do {
+        // jeu
+        cout << "let's go !" << endl ;
+        nombreADeviner = TirerNombreMystere();
+        JouerPartie(joueur, nombreADeviner);
+        // demande d'une nouvelle partie
+        cout << "Voulez vous jouez une autre partie ?   o/n " << endl << "Oui tapez o | Sinon tapez autre chose :) " << endl;
+        cin >> choix;
+    } while(choix == "o");
+    cout << "Merci d'avoir joue a la prochaine " << Nom(joueur) << endl;
 
-
-    JouerPartie (joueur, nombreADeviner );
+    // recuperation des donnees du joueur
+    // affichage du resultat
+    ResultatsJoueur(joueur, nbsucces, nbechec, nbessais);
+    cout << "Vous avez joue " << (nbsucces + nbechec) << " parties ! " << endl;
+    cout << "Vous avez gagne " << nbsucces << " parties ! " << endl;
+    cout << "Vous avez perdu " << nbechec << " parties ! " << endl;
+    cout << "Avec un total de " << nbessais << " essais ! " << endl;
 
     return 0;
 }
+
 

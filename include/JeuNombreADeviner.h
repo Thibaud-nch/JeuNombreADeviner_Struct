@@ -13,6 +13,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <string>
+#include <stdbool.h>
 using namespace std;
 
 //Type: structure TJoueur
@@ -69,7 +70,7 @@ void JouerPartie (TJoueur &un_joueur, int nombreADeviner);
 // Paramètres de sortie:
 // Paramètres d'entrée/sortie :
 
-void MajResultatsJoueur(TJoueur joueur, int nbEssais, bool gagne);
+void MajResultatsJoueur(TJoueur &joueur, int nbEssais, bool gagne);
 
 
 

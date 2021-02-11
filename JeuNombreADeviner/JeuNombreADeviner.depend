@@ -21,3 +21,23 @@
 	<iostream>
 	"../include/JeuNombreADeviner.h"
 
+1613077099 source:d:\workspace\jeunombreadeviner_struct\src\jeunombreadeviner.cpp
+	<stdlib.h>
+	<time.h>
+	<iostream>
+	<stdbool.h>
+	"../include/JeuNombreAdeviner.h"
+
+1613067565 d:\workspace\jeunombreadeviner_struct\include\jeunombreadeviner.h
+	<stdlib.h>
+	<time.h>
+	<string>
+	<stdbool.h>
+
+1613076665 source:d:\workspace\jeunombreadeviner_struct\src\mainjeunombreadeviner.cpp
+	<stdlib.h>
+	<time.h>
+	<iostream>
+	<stdbool.h>
+	"../include/JeuNombreADeviner.h"
+
